@@ -123,7 +123,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [Header("Modifer")]
         [SerializeField] private bool useModifier;
         [SerializeField] private int modifiedActionValueIndex;
-        [SerializeField] private StatusType modiferStats;
+        [SerializeField] private List<StatusType> modiferStats;
         [SerializeField] private bool usePrefixOnModifiedValue;
         [SerializeField] private string modifiedValuePrefix = "*";
         [SerializeField] private bool overrideColorOnValueScaled;
@@ -133,7 +133,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public Color OverrideColor => overrideColor;
         public bool UseModifier => useModifier;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
-        public StatusType ModiferStats => modiferStats;
+        public List<StatusType> ModiferStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
         public string ModifiedValuePrefix => modifiedValuePrefix;
         public bool OverrideColorOnValueScaled => overrideColorOnValueScaled;
@@ -164,17 +164,21 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             
             var str = new StringBuilder();
             var value = cardData.CardActionDataList[ModifiedActionValueIndex].ActionValue;
-            var modifer = 0;
+            var modifier = 0;
             if (CombatManager)
             {
                 var player = CombatManager.CurrentMainAlly;
                
                 if (player)
                 {
-                    modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
-                    value += modifer;
+                    // Take all stats into consideration that modify the value (e.g. "Toxic Gas Container" is modified both by "Amplification of Poisonous Gas" and by "Toxic Compressor")
+                    foreach (StatusType modifierStat in ModiferStats)
+                    {
+                        modifier = player.CharacterStats.StatusDict[modifierStat].StatusValue;
+                        value += modifier;
+                    }
 
-                    if (modifer != 0)
+                    if (modifier != 0)
                     {
                         if (usePrefixOnModifiedValue)
                             str.Append(modifiedValuePrefix);
@@ -188,7 +192,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             {
                 if (OverrideColorOnValueScaled)
                 {
-                    if (modifer != 0)
+                    if (modifier != 0)
                         str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
                 }
                 else
@@ -230,10 +234,15 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 var player = CombatManager.CurrentMainAlly;
                 if (player)
                 {
-                    var modifer =player.CharacterStats.StatusDict[ModiferStats].StatusValue;
-                    value += modifer;
+                    var modifier = 0;
+
+                    foreach (StatusType modifierStat in ModiferStats)
+                    {
+                        modifier = player.CharacterStats.StatusDict[modifierStat].StatusValue;
+                        value += modifier;
+                    }
                 
-                    if (modifer!= 0)
+                    if (modifier!= 0)
                         str.Append("*");
                 }
             }
@@ -248,7 +257,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditOverrideColor(Color newColor) => overrideColor = newColor;
         public void EditUseModifier(bool newStatus) => useModifier = newStatus;
         public void EditModifiedActionValueIndex(int newIndex) => modifiedActionValueIndex = newIndex;
-        public void EditModiferStats(StatusType newStatusType) => modiferStats = newStatusType;
+        
+        // TODO: Adjust editor script to modifier stats change
+        //public void EditModiferStats(StatusType newStatusType) => modiferStats = newStatusType;
         public void EditUsePrefixOnModifiedValues(bool newStatus) => usePrefixOnModifiedValue = newStatus;
         public void EditPrefixOnModifiedValues(string newText) => modifiedValuePrefix = newText;
         public void EditOverrideColorOnValueScaled(bool newStatus) => overrideColorOnValueScaled = newStatus;

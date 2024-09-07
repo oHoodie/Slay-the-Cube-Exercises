@@ -29,3 +29,7 @@ MonoBehaviour:
   - specialKeyword: 6
     contentText: Damage per round equal to the amount of  <color=purple>gassed</color>.
       Ignores <color=blue>block</color>. Reduced by 2 each round.
+  - specialKeyword: 7
+    contentText: Increase any  <color=purple>gassed</color> effect by 1.
+  - specialKeyword: 8
+    contentText: Toxic Gas Container cards apply 1 additional  <color=purple>gassed</color>.

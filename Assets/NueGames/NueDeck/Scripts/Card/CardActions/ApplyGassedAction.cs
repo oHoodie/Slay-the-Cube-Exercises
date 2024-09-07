@@ -14,8 +14,12 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         {
             if (!actionParameters.TargetCharacter) return;
 
-            //Add Amplification of Poisonous Gas to the base gassed value of the card
+            // Add Amplification of Poisonous Gas to the base gassed value of the card
             int amplifiedValue = Mathf.RoundToInt(actionParameters.Value) + actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.AmplificationOfPoisonousGas].StatusValue;
+
+            // Add Toxic Compressor Buff if Toxic Gas Container card was played
+            if(actionParameters.CardData.Id == "11_skill_toxicGasContainer") 
+                amplifiedValue += actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.ToxicGasContainerBuff].StatusValue;
 
             actionParameters.TargetCharacter.CharacterStats.ApplyStatus(StatusType.Gassed, amplifiedValue);
 

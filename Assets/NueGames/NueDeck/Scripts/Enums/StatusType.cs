@@ -9,6 +9,7 @@
         Dexterity,
         Stun,
         Gassed,
-        AmplificationOfPoisonousGas
+        AmplificationOfPoisonousGas,
+        ToxicGasContainerBuff
     }
 }

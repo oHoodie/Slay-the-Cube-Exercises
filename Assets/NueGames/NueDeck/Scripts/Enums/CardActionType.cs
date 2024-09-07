@@ -13,6 +13,8 @@
         Stun,
         Exhaust,
         ApplyGassed,
-        ApplyAmplificationOfPoisonousGas
+        ApplyAmplificationOfPoisonousGas,
+        ApplyToxicGasContainerBuff,
+        CreateCardInHand
     }
 }
