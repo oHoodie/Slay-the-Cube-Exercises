@@ -1,9 +1,11 @@
 using NueGames.NueDeck.Scripts.Enums;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
+    /// <summary>
+    /// Action that applies the Gassed Status effect
+    /// </summary>
     public class ApplyGassedAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.ApplyGassed;
@@ -12,10 +14,13 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         {
             if (!actionParameters.TargetCharacter) return;
 
-            actionParameters.TargetCharacter.CharacterStats.ApplyStatus(StatusType.Gassed, Mathf.RoundToInt(actionParameters.Value));
+            //Add Amplification of Poisonous Gas to the base gassed value of the card
+            int amplifiedValue = Mathf.RoundToInt(actionParameters.Value) + actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.AmplificationOfPoisonousGas].StatusValue;
+
+            actionParameters.TargetCharacter.CharacterStats.ApplyStatus(StatusType.Gassed, amplifiedValue);
 
             if (FxManager != null)
-                FxManager.PlayFx(actionParameters.TargetCharacter.transform, FxType.Stun);
+                FxManager.PlayFx(actionParameters.TargetCharacter.transform, FxType.Poison);
 
             if (AudioManager != null)
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);

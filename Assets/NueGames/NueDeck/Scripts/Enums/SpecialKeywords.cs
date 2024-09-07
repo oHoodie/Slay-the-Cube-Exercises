@@ -8,6 +8,7 @@
         Exhaust,
         Dexterity,
         Stun,
-        Gassed
+        Gassed,
+        AmplificationOfPoisonousGas
     }
 }
