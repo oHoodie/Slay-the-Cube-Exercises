@@ -34,7 +34,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
     overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
+    modiferStats: 03000000
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
     overrideColor: {r: 0.5176471, g: 0, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 1
-    modiferStats: 7
+    modiferStats: 07000000
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
@@ -79,7 +79,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 6
+    modiferStats: 
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1

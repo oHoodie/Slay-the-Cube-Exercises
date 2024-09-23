@@ -10,6 +10,7 @@
         Stun,
         Gassed,
         AmplificationOfPoisonousGas,
-        ToxicGasContainerBuff
+        ToxicGasContainerBuff,
+        ToxicGasContainer
     }
 }

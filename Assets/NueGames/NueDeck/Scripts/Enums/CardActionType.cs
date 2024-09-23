@@ -15,6 +15,6 @@
         ApplyGassed,
         ApplyAmplificationOfPoisonousGas,
         ApplyToxicGasContainerBuff,
-        CreateCardInHand
+        CreateToxicGasContainer
     }
 }

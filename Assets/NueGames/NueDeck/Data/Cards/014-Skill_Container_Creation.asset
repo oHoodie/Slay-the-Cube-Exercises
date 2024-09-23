@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 014-Skill_Container_Creation
   m_EditorClassIdentifier: 
-  id: 12_power_toxicCompressor
-  cardName: Toxic Compressor
+  id: 14_skill_containerCreation
+  cardName: Container Creation
   manaCost: 1
-  cardSprite: {fileID: 21300000, guid: 2d0a96de6eee1944e9bbd4cfb95befb0, type: 3}
-  rarity: 0
+  cardSprite: {fileID: -4918970044191658307, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 11
+  - cardActionType: 12
     actionTargetType: 1
     actionValue: 1
     actionDelay: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
